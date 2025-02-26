@@ -13,9 +13,17 @@ public class HelloWorld {
     private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     @RequestMapping("/hello")
-    public Map<String, String> helloWorld(@RequestBody Map<String,String> map){
+    public String helloWorld(@RequestBody Map<String,Object> map){
+        logger.debug("this is logback log debug");
+        logger.info("map",map);
+        logger.info("interface helloWorld running");
+        return "get it";
+    }
+
+    @RequestMapping("/hello2")
+    public String helloWorld2(){
         logger.debug("this is logback log debug");
         logger.info("interface helloWorld running");
-        return map;
+        return "hello";
     }
 }
